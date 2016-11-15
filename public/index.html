@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<title>Tourney Finder</title>
+	</head>
+	<body>
+		<h1>This is a test bruh.</h1>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			function reqListener () {
+				console.log(this.responseText);
+				console.log(this);
+			}
+			var url = 'https://api.tourneyfinder.com/v1/event';
+			var oReq = new XMLHttpRequest();
+			oReq.addEventListener("load", reqListener);
+			oReq.open("GET", url);
+			oReq.setRequestHeader("Content-Type", "application/json");
+			oReq.send();
+		</script>
+	</body>
+</html>
