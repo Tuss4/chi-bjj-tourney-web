@@ -5,27 +5,23 @@
 		<title>Tourney Finder</title>
 	</head>
 	<body>
-		<h1>This is a test bruh.</h1>
-		<form action="#">
-			<div>
-				<label for="email">Email</label>
-				<input type="email" id="email" name="email" v-model="email">
-			</div>
-			<div>
-				<label for="password">Password</label>
-				<input type="password" id="password" name="password", v-model="password">
-			</div>
-			<div><button type="submit">Login</button></div>
-		</form>
-		<script src="https://unpkg.com/vue/dist/vue.js"></script>
-		<script type="text/javascript">
-			new Vue({
-				el: 'body',
-				data: {
-					email: '',
-					password: ''
-				}
-			});
-		</script>
+		<h1>TourneyFinder</h1>
+		<div id="loginForm">
+			<form action="#">
+				<div>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" v-model="email">
+				</div>
+				<div>
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" v-model="password">
+				</div>
+				<div>
+					<button type="submit" v-on:click='loginUser'>Login</button>
+				</div>
+			</form>
+		</div>
+		<script src="https://unpkg.com/vue@2.0.7/dist/vue.js"></script>
+		<script src="./js/web.js"></script>
 	</body>
 </html>

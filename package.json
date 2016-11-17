@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Tuss4/chi-bjj-tourney-web#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "vue": "^2.0.7"
   }
 }
