@@ -6,29 +6,16 @@
 	</head>
 	<body>
 		<h1>TourneyFinder</h1>
-		<div id="welcomeBack">
-			<div v-if="seen">
-				<p>Welcome back, {{ email }}!</p>
-				<p><a href="#" v-on:click='clearCookies'>Logout</a></p>
-			</div>
-		</div>
-		<div id="loginForm">
-			<form action="#" v-if="seen">
-				<div>
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" v-model="email">
-				</div>
-				<div>
-					<label for="password">Password</label>
-					<input type="password" id="password" name="password" v-model="password">
-				</div>
-				<div>
-					<button type="submit" v-on:click='loginUser'>Login</button>
-				</div>
-			</form>
+		<div id="app">
+			<p>
+				<router-link to="/register">Register</router-link>
+				<router-link to="/login">Login</router-link>
+			</p>
+			<router-view></router-view>
 		</div>
 		<script src="https://unpkg.com/vue@2.0.7/dist/vue.js"></script>
 		<script src="./js/vue-router.js"></script>
+		<script src="./js/templates.js"></script>
 		<script src="./js/web.js"></script>
 	</body>
 </html>
