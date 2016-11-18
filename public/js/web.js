@@ -29,7 +29,8 @@ if (cookieArray.length > 1) {
 var welcomeUser = new Vue({
     el: '#welcomeBack',
     data: {
-        email: userEmail // Set this to whatever is in the cookie.
+        email: userEmail, // Set this to whatever is in the cookie.
+        seen: false
     },
     methods: {
       clearCookies: function (e) {
@@ -37,14 +38,20 @@ var welcomeUser = new Vue({
         deleteCookie();
         location.reload();
       }
-    }
+  },
+  created: function () {
+      if (rawEmail !== '') {
+          this.seen = true;
+      }
+  }
 });
 
 var loginForm = new Vue({
     el: '#loginForm',
     data: {
         email: '',
-        password: ''
+        password: '',
+        seen: true
     },
     methods: {
         loginUser: function (e) {
@@ -56,8 +63,14 @@ var loginForm = new Vue({
                 data = JSON.parse(xhr.responseText);
                 console.log(data);
                 setCookie(data.user.email, data.token);
+                location.reload();
             };
             xhr.send(JSON.stringify({email:this.email, password:this.password}));
+        }
+    },
+    created: function () {
+        if (rawEmail !== '') {
+            this.seen = false;
         }
     }
 });
