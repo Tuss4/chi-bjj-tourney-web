@@ -15,15 +15,28 @@ function deleteCookie () {
 }
 
 var cookieArray = document.cookie.split(';');
-var rawEmail = cookieArray[0];
-var userEmail = rawEmail.substring(6, rawEmail.length);
-var rawToken = cookieArray[1];
-var userToken = 'Token ' + rawToken.substring(6, rawToken.length);
+var rawEmail = '';
+var userEmail = '';
+var rawToken = '';
+var userToken = '';
+if (cookieArray.length > 1) {
+  rawEmail = cookieArray[0];
+  userEmail = rawEmail.substring(6, rawEmail.length);
+  rawToken = cookieArray[1];
+  userToken = 'Token ' + rawToken.substring(6, rawToken.length);
+}
 
 var welcomeUser = new Vue({
     el: '#welcomeBack',
     data: {
         email: userEmail // Set this to whatever is in the cookie.
+    },
+    methods: {
+      clearCookies: function (e) {
+        e.preventDefault();
+        deleteCookie();
+        location.reload();
+      }
     }
 });
 
