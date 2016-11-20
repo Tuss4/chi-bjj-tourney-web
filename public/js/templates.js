@@ -1,16 +1,17 @@
+/*jshint esversion: 6*/
 var loginTemplate = `
-<div id=loginForm>
+<div id='loginForm'>
     <form action='#'>
         <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" v-model="email">
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" v-model="password">
         </div>
         <div>
-            <button type="submit">Login</button>
+            <button type="submit" v-on:click='loginUser'>Login</button>
         </div>
     </form>
 </div>
@@ -18,7 +19,7 @@ var loginTemplate = `
 
 
 var registerTemplate = `
-<div id=registerForm>
+<div id='registerForm'>
     <form action='#'>
         <div>
             <label for="email">Email</label>
