@@ -30,10 +30,9 @@ export default {
   methods: {
     loginUser: function (e) {
       e.preventDefault()
+      console.log("Whut's good, bruh?")
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/login'
-      var req = request.post(url, body)
-      console.log(req)
     }
   }
 }
