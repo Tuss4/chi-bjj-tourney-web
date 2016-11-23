@@ -33,6 +33,17 @@ export default {
       console.log("Whut's good, bruh?")
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/login'
+      request.post({
+        headers: {'Content-Type': 'application/json'},
+        method: 'POST',
+        uri: url,
+        body: JSON.stringify({email: this.email, password: this.password})
+      }, function (error, response, body) {
+        var data = JSON.parse(body)
+        localStorage.token = data.token
+        localStorage.email = data.user.email
+        console.log(localStorage)
+      })
     }
   }
 }
