@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+        <div>{{ errors }}</div>
         <form action="#">
             <div>
                 <label for="email">Email</label>
@@ -24,13 +25,13 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      errors: false
     }
   },
   methods: {
     loginUser: function (e) {
       e.preventDefault()
-      console.log("Whut's good, bruh?")
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/login'
       request.post({
@@ -39,10 +40,16 @@ export default {
         uri: url,
         body: JSON.stringify({email: this.email, password: this.password})
       }, function (error, response, body) {
-        var data = JSON.parse(body)
-        localStorage.token = data.token
-        localStorage.email = data.user.email
-        console.log(localStorage)
+        console.log(response.statusCode)
+        if (response.statusCode != 200) {
+          console.log(body)
+          alert("Invalid username/password.")
+        } else {
+          var data = JSON.parse(body)
+          localStorage.token = data.token
+          localStorage.email = data.user.email
+          console.log(localStorage)
+        }
       })
     }
   }
