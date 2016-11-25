@@ -5,6 +5,7 @@ import Login from './Login.vue'
 import Register from './Register.vue'
 import Confirm from './Confirm.vue'
 import Home from './Home.vue'
+import Forgot from './Forgot.vue'
 
 Vue.use(VueRouter)
 
@@ -12,7 +13,8 @@ const routes = [
   { path: '/', component: Home},
   { path: '/login', component: Login },
   { path: '/register', component: Register },
-  { path: '/confirm/:token', component: Confirm }
+  { path: '/confirm/:token', component: Confirm },
+  { path: '/forgot/', component: Forgot}
 ]
 
 const router = new VueRouter({

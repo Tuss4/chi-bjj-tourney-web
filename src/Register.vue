@@ -1,5 +1,8 @@
 <template>
     <div class="register">
+        <p v-if="errors">
+            Try Again.
+        </p>
         <form action="#">
             <div>
                 <label for="email">Email</label>
@@ -23,7 +26,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      errors: false
     }
   },
   methods: {
@@ -35,10 +39,10 @@ export default {
       request.post({
         headers: {'Content-Type': 'application/json'},
         uri: url,
-        body: JSON.stringify({email: that.email, password: that.password})
+        body: body
       }, function (error, response, body) {
         if (response.statusCode != 201) {
-          alert("Error during registration.")
+          that.errors = true
         } else {
           var data = JSON.parse(body)
           var msg = "An email has been sent to: " + that.email

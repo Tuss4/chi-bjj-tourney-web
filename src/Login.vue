@@ -11,7 +11,8 @@
                 <input type="password" name="password" id="password" v-model="password">
             </div>
             <div>
-                <button type="submit" v-on:click="loginUser">Login</button
+                <button type="submit" v-on:click="loginUser">Login</button>
+                <router-link to="/forgot">Forgot password?</router-link>
             </div>
         </form>
     </div>
@@ -48,6 +49,7 @@ export default {
         uri: url,
         body: JSON.stringify({email: that.email, password: that.password})
       }, function (error, response, body) {
+        console.log(body)
         if (response.statusCode != 200) {
           that.errors = true
         } else {
