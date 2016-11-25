@@ -23,7 +23,6 @@
         headers: {'Content-Type': 'application/json'},
         uri: url
       }, function (error, response, body) {
-        console.log(response.statusCode)
         if (response.statusCode != 200) {
           that.status = "Error during confirmation."
         } else {

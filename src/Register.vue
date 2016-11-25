@@ -31,18 +31,17 @@ export default {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/register'
+      var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},
         uri: url,
-        body: JSON.stringify({email: this.email, password: this.password})
+        body: JSON.stringify({email: that.email, password: that.password})
       }, function (error, response, body) {
-        console.log(response.statusCode)
         if (response.statusCode != 201) {
-          console.log(body)
           alert("Error during registration.")
         } else {
           var data = JSON.parse(body)
-          console.log(data)
+          alert("An email has been sent to: ", that.email)
         }
       })
     }

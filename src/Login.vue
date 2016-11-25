@@ -46,7 +46,7 @@ export default {
       request.post({
         headers: {'Content-Type': 'application/json'},
         uri: url,
-        body: JSON.stringify({email: this.email, password: this.password})
+        body: JSON.stringify({email: that.email, password: that.password})
       }, function (error, response, body) {
         if (response.statusCode != 200) {
           that.errors = true
