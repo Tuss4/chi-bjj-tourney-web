@@ -29,12 +29,10 @@ export default {
   methods: {
     registerUser: function (e) {
       e.preventDefault()
-      console.log(this.email, this.password)
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/register'
       request.post({
         headers: {'Content-Type': 'application/json'},
-        method: 'POST',
         uri: url,
         body: JSON.stringify({email: this.email, password: this.password})
       }, function (error, response, body) {

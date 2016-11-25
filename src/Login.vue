@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <div>{{ errors }}</div>
+        <p v-if="errors">Incorrect email/password.</p>
         <form action="#">
             <div>
                 <label for="email">Email</label>
@@ -20,6 +20,14 @@
 <script>
 const request = require('request')
 
+function showErrors (errors, prop) {
+  if (errors) {
+    prop = true
+  } else {
+    prop = false
+  }
+}
+
 export default {
   name: 'login',
   data () {
@@ -34,21 +42,20 @@ export default {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/login'
+      var haveErrors = false
+      var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},
-        method: 'POST',
         uri: url,
         body: JSON.stringify({email: this.email, password: this.password})
       }, function (error, response, body) {
         console.log(response.statusCode)
         if (response.statusCode != 200) {
-          console.log(body)
-          alert("Invalid username/password.")
+          that.errors = true
         } else {
           var data = JSON.parse(body)
           localStorage.token = data.token
           localStorage.email = data.user.email
-          console.log(localStorage)
         }
       })
     }

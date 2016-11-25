@@ -16,6 +16,7 @@
     },
     mounted: function () {
       var url = 'https://api.tourneyfinder.com/v1/confirm/' + this.$route.params.token
+      var that = this
       console.log(url)
       request({
         method: 'GET',
@@ -23,9 +24,16 @@
         uri: url
       }, function (error, response, body) {
         console.log(response.statusCode)
-        var data = JSON.parse(body)
-        console.log(data)
-        console.log(this.status)
+        if (response.statusCode != 200) {
+          that.status = "Error during confirmation."
+        } else {
+          var data = JSON.parse(body)
+          if (!data.confirmed) {
+            that.status = "Error during confirmation."
+          } else {
+            that.status = "Account confirmed."
+          }
+        }
       })
     }
   }
