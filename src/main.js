@@ -4,12 +4,9 @@ import VueRouter from 'vue-router'
 import Login from './Login.vue'
 import Register from './Register.vue'
 import Confirm from './Confirm.vue'
-
+import Home from './Home.vue'
 
 Vue.use(VueRouter)
-
-const Home = { template: '<div>Events and stuff</div>'}
-
 
 const routes = [
   { path: '/', component: Home},

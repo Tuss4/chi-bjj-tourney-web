@@ -42,20 +42,19 @@ export default {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
       var url = 'https://api.tourneyfinder.com/v1/user/login'
-      var haveErrors = false
       var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},
         uri: url,
         body: JSON.stringify({email: this.email, password: this.password})
       }, function (error, response, body) {
-        console.log(response.statusCode)
         if (response.statusCode != 200) {
           that.errors = true
         } else {
           var data = JSON.parse(body)
           localStorage.token = data.token
           localStorage.email = data.user.email
+          location.assign('/#/')
         }
       })
     }

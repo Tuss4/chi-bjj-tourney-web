@@ -8,6 +8,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  cache: true,
   module: {
     rules: [
       {
