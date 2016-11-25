@@ -41,7 +41,8 @@ export default {
           alert("Error during registration.")
         } else {
           var data = JSON.parse(body)
-          alert("An email has been sent to: ", that.email)
+          var msg = "An email has been sent to: " + that.email
+          alert(msg)
         }
       })
     }
