@@ -7,6 +7,7 @@ import Confirm from './Confirm.vue'
 import Home from './Home.vue'
 import Forgot from './Forgot.vue'
 import Passreset from './Passreset.vue'
+import  AddEvent from './event/AddEvent.vue'
 
 Vue.use(VueRouter)
 
@@ -15,8 +16,9 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/confirm/:token', component: Confirm },
-  { path: '/forgot/', component: Forgot},
-  { path: '/password-reset/:token', component: Passreset}
+  { path: '/forgot', component: Forgot},
+  { path: '/password-reset/:token', component: Passreset},
+  { path: '/event/add', component: AddEvent}
 ]
 
 const router = new VueRouter({

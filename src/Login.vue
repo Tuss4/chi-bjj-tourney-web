@@ -49,7 +49,6 @@ export default {
         uri: url,
         body: JSON.stringify({email: that.email, password: that.password})
       }, function (error, response, body) {
-        console.log(body)
         if (response.statusCode != 200) {
           that.errors = true
         } else {
