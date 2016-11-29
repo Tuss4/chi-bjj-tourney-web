@@ -1,8 +1,26 @@
 <template>
     <div id="viewEvent">
-        <h2>{{ name }}</h2>
+        <h2>{{ name }} - ({{ getEventType }})</h2>
         <p>
             {{ website }}
+        </p>
+        <h3>Event Dates</h3>
+        <p>
+            {{ startDate }} - {{ endDate}}
+        </p>
+        <h3>Registration Dates</h3>
+        <p>
+            Early: {{ earlyRegDate }}
+        </p>
+        <p>
+            Regular: {{ regularRegDate }}
+        </p>
+        <h3>Pricing</h3>
+        <p>
+            Early: ${{ earlyPrice }}
+        </p>
+        <p>
+            Regular: ${{ regularPrice }}
         </p>
     </div>
 </template>
@@ -41,9 +59,25 @@ export default {
                   that.id = data.id
                   that.name = data.name
                   that.website = data.website
+                  that.eventType = data.event_type
+                  that.startDate = data.start_date
+                  that.endDate = data.end_date
+                  that.earlyRegDate = data.early_registration_date
+                  that.regularRegDate = data.registration_date
+                  that.earlyPrice = data.early_price
+                  that.regularPrice = data.price
               }
           })
       }
+  },
+  computed: {
+    getEventType: function () {
+        if (this.eventType == 'T') {
+            return "Tournament"
+        } else {
+            return "Seminar"
+        }
+    }
   },
   mounted: function () {
       this.getEvent()
