@@ -26,5 +26,15 @@ const router = new VueRouter({
 })
 
 const app = new Vue({
-  router
+  router,
+  computed: {
+      canDisplay: function () {
+          var authenticated = localStorage.getItem('email') && localStorage.getItem('token')
+          if (authenticated) {
+              return false
+          } else {
+              return true
+          }
+      }
+  }
 }).$mount('#app')

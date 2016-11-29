@@ -9,7 +9,7 @@
     <div id="app">
         <p>
             <router-link to="/">Home</router-link>
-        <span>
+        <span v-if="canDisplay">
             <router-link to="/login">Login</router-link>
             <router-link to="/register">Register</router-link>
         </span>
