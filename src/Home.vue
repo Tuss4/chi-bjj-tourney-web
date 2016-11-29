@@ -4,7 +4,7 @@
         <p>
             <ul>
                 <li v-for="event in events">
-                    {{ event.name }} - {{ event.website }}
+                    <a v-bind:href="event.permalink">{{ event.start_date }}: {{ event.name }} - {{ event.website }}</a>
                 </li>
             </ul>
         </p>
