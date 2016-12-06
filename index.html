@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>TourneyFinder</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
       <h1>TourneyFinder</h1>
     <div id="app">
         <p>
             <router-link to="/">Home</router-link>
+            <router-link to="/event/add">Add Event</router-link>
         <span v-if="canDisplay">
             <router-link to="/login">Login</router-link>
             <router-link to="/register">Register</router-link>

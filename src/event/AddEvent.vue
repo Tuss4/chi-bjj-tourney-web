@@ -104,6 +104,7 @@ export default {
                     var data = JSON.parse(body)
                     console.log(data)
                     alert("Event created. You will be notified when it's approved.")
+                    location.assign("/#/event/" + data.id)
                 }
             })
         }

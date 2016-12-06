@@ -1,8 +1,9 @@
 <template>
     <div id="viewEvent">
         <h2>{{ name }} - ({{ getEventType }})</h2>
+        <h3>Website</h3>
         <p>
-            {{ website }}
+            <a v-bind:href="website" target="new">{{ website }}</a>
         </p>
         <h3>Event Dates</h3>
         <p>

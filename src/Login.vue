@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <p v-if="errors">Incorrect email/password.</p>
+        <p class="loginError" v-if="errors">Incorrect email/password.</p>
         <form action="#">
             <div>
                 <label for="email">Email</label>
@@ -55,6 +55,7 @@ export default {
           var data = JSON.parse(body)
           localStorage.token = data.token
           localStorage.email = data.user.email
+          localStorage.moderator = data.moderator
           location.assign('/#/')
         }
       })
@@ -62,3 +63,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.loginError {
+    color: red
+}
+</style>

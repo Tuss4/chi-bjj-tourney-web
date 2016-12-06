@@ -9,6 +9,7 @@ import Forgot from './Forgot.vue'
 import Passreset from './Passreset.vue'
 import  AddEvent from './event/AddEvent.vue'
 import ViewEvent from './event/ViewEvent.vue'
+import ModerateEvent from './event/ModerateEvent.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,8 @@ const routes = [
   { path: '/forgot', component: Forgot },
   { path: '/password-reset/:token', component: Passreset },
   { path: '/event/add', component: AddEvent },
-  { path: '/event/:id', component: ViewEvent }
+  { path: '/event/:id', component: ViewEvent },
+  { path: '/event/moderate/:id', component: ModerateEvent }
 ]
 
 const router = new VueRouter({
