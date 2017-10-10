@@ -42,7 +42,7 @@ export default {
     loginUser: function (e) {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
-      var url = 'https://api.tourneyfinder.com/v1/user/login'
+      var url = 'http://52.15.143.14/v1/user/login'
       var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},

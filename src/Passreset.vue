@@ -25,7 +25,7 @@ export default {
     methods: {
         resetPass: function (e) {
             e.preventDefault()
-            var url = 'https://api.tourneyfinder.com/v1/reset/' + this.$route.params.token
+            var url = 'http://52.15.143.14/v1/reset/' + this.$route.params.token
             var body = JSON.stringify({new_password: this.password})
             request.post({
                 headers: {'Content-Type': 'application/json'},

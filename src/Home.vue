@@ -12,7 +12,7 @@
 </template>
 
 <script>
-const request = require('request')
+const axios = require('axios')
 
 export default {
   name: 'home',
@@ -31,18 +31,14 @@ export default {
     },
     fetchEvents: function () {
         var that = this
-        var url = 'https://api.tourneyfinder.com/v1/event'
-        request({
-            headers: {'Content-Type': 'application/json'},
-            uri: url
-        }, function (error, response, body) {
-            if (response.statusCode != 200) {
-                console.log(body)
-            } else {
-                var data = JSON.parse(body)
-                that.events = data.results
+        var url = 'http://52.15.143.14/v1/event/'
+        axios.get(url).then(
+            function (response) {
+                that.events = response.data.results;
             }
-        })
+        ).catch(function (error) {
+            console.log("We got some: ", error);
+        });
     }
   },
   mounted: function () {

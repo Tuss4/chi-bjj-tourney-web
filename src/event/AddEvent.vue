@@ -77,7 +77,7 @@ export default {
                 alert("Please login.")
                 location.assign('/#/login')
             }
-            var url = 'https://api.tourneyfinder.com/v1/event/'
+            var url = 'http://52.15.143.14/v1/event/'
             var body = JSON.stringify({
                 name: this.eventName,
                 website: this.website,

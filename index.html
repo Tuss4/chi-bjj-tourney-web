@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>TourneyFinder</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
   <body>
       <h1>TourneyFinder</h1>
     <div id="app">
         <p>
             <router-link to="/">Home</router-link>
-            Search
+            <!-- Search -->
             <router-link to="/event/add">Add Event</router-link>
         <span v-if="canDisplay">
             <router-link to="/login">Login</router-link>
@@ -19,6 +19,15 @@
         </p>
         <router-view></router-view>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>TourneyFinder</strong> by <a href="http://tjsoptame.com">TJ Soptame</a>
+                </p>
+            </div>
+        </div>
+    </footer>
     <script src="/dist/build.js"></script>
   </body>
 </html>

@@ -31,7 +31,7 @@ export default {
             e.preventDefault()
             var that = this
             var body = JSON.stringify({email: that.email})
-            var url = 'https://api.tourneyfinder.com/v1/forgot/'
+            var url = 'http://52.15.143.14/v1/forgot/'
             request.post({
                 headers: {'Content-Type': 'application/json'},
                 uri: url,
