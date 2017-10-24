@@ -15,7 +15,7 @@
       }
     },
     mounted: function () {
-      var url = 'http://52.15.143.14/v1/confirm/' + this.$route.params.token
+      var url = 'http://api.tourneyfiner.com/v1/confirm/' + this.$route.params.token
       var that = this
       console.log(url)
       request({

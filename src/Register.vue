@@ -34,7 +34,7 @@ export default {
     registerUser: function (e) {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
-      var url = 'http://52.15.143.14/v1/user/register'
+      var url = 'http://api.tourneyfiner.com/v1/user/register'
       var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},

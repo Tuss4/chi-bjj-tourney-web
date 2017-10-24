@@ -33,7 +33,7 @@ export default {
     methods: {
         fetchEvent: function () {
             var that=this
-            var url = 'http://52.15.143.14/v1/event/' + this.$route.params.id
+            var url = 'http://api.tourneyfiner.com/v1/event/' + this.$route.params.id
             request({
                 headers: {'Content-Type': 'application/json'},
                 uri: url
@@ -51,7 +51,7 @@ export default {
             e.preventDefault()
             console.log(this.status)
             var that = this
-            var url = 'http://52.15.143.14/v1/moderate-event/' + this.$route.params.id
+            var url = 'http://api.tourneyfiner.com/v1/moderate-event/' + this.$route.params.id
             var status = null
             if (this.status == 'false') {
                 status = false

@@ -47,7 +47,7 @@ export default {
   },
   methods: {
       getEvent: function () {
-          var url = 'http://52.15.143.14/v1/event/' + this.$route.params.id
+          var url = 'http://api.tourneyfiner.com/v1/event/' + this.$route.params.id
           var that = this
           request({
               headers: {'Content-Type': 'application/json'},

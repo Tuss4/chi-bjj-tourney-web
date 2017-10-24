@@ -31,7 +31,7 @@ export default {
     },
     fetchEvents: function () {
         var that = this
-        var url = 'http://52.15.143.14/v1/event/'
+        var url = 'http://api.tourneyfiner.com/v1/event/'
         axios.get(url).then(
             function (response) {
                 that.events = response.data.results;
