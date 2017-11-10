@@ -6,18 +6,20 @@
         <form action="#">
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" v-model="email">
+                <input class="input" type="email" name="email" id="email" v-model="email">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" v-model="password">
+                <input class="input" type="password" name="password" id="password" v-model="password">
             </div>
             <div>
-                <button type="submit" v-on:click="registerUser">Register</button
+                <button class="button" type="submit" v-on:click="registerUser">Register</button>
             </div>
         </form>
     </div>
 </template>
+
+<style src="bulma/css/bulma.css"></style>
 
 <script>
 const request = require('request')
@@ -34,7 +36,7 @@ export default {
     registerUser: function (e) {
       e.preventDefault()
       var body = JSON.stringify({email: this.email, password: this.password})
-      var url = 'http://api.tourneyfiner.com/v1/user/register'
+      var url = 'https://api.tourneyfinder.com/v1/user/register'
       var that = this
       request.post({
         headers: {'Content-Type': 'application/json'},

@@ -6,14 +6,16 @@
         <form action="#">
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" v-model="email" />
+                <input class="input" type="email" name="email" id="email" v-model="email" />
             </div>
             <div>
-                <button type="submit" v-on:click="passwordReq">Send</button>
+                <button class="button" type="submit" v-on:click="passwordReq">Send</button>
             </div>
         </form>
     </div>
 </template>
+
+<style src="bulma/css/bulma.css"></style>
 
 <script>
 const request = require('request')
@@ -31,7 +33,7 @@ export default {
             e.preventDefault()
             var that = this
             var body = JSON.stringify({email: that.email})
-            var url = 'http://api.tourneyfiner.com/v1/forgot/'
+            var url = 'https://api.tourneyfinder.com/v1/forgot/'
             request.post({
                 headers: {'Content-Type': 'application/json'},
                 uri: url,

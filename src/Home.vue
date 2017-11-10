@@ -1,6 +1,16 @@
 <template>
     <div class="home">
-        <p v-if="display">Welcome back, {{ email }} (<a href="#" v-on:click="logoutUser">logout</a>)!</p>
+        <section class="hero is-small" v-if="display">
+            <div class="hero-body">
+                    <h1 class="title">
+                        Welcome back, {{ email }}!</p>
+                    </h1>
+                    <h2 class="subtitle">
+                        (<a href="#" v-on:click="logoutUser">logout</a>)
+                    </h2>
+            </div>
+
+        </section>
         <p>
             <ul>
                 <li v-for="event in events">
@@ -10,6 +20,8 @@
         </p>
     </div>
 </template>
+
+<style src="bulma/css/bulma.css"></style>
 
 <script>
 const axios = require('axios')
@@ -31,10 +43,10 @@ export default {
     },
     fetchEvents: function () {
         var that = this
-        var url = 'http://api.tourneyfiner.com/v1/event/'
+        var url = 'https://api.tourneyfinder.com/v1/event/'
         axios.get(url).then(
             function (response) {
-                that.events = response.data.results;
+                that.events = response.data;
             }
         ).catch(function (error) {
             console.log("We got some: ", error);

@@ -4,6 +4,8 @@
   </div>
 </template>
 
+<style src="bulma/css/bulma.css"></style>
+
 <script>
   const request = require('request')
 
@@ -15,7 +17,7 @@
       }
     },
     mounted: function () {
-      var url = 'http://api.tourneyfiner.com/v1/confirm/' + this.$route.params.token
+      var url = 'https://api.tourneyfinder.com/v1/confirm/' + this.$route.params.token
       var that = this
       console.log(url)
       request({

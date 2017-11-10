@@ -5,18 +5,22 @@
                 <a v-bind:href="permalink" target="blank">{{ name }}</a>
             </p>
             <label for="status">Status:</label>
-            <select name="status" v-model="status">
-                <option value="true">
-                    Approve
-                </option>
-                <option value="false">
-                    Deny
-                </option>
-            </select>
-            <button type="submit" v-on:click="updateStatus">Update</button>
+            <div class="select">
+                <select name="status" v-model="status">
+                    <option value="true">
+                        Approve
+                    </option>
+                    <option value="false">
+                        Deny
+                    </option>
+                </select>
+            </div>
+            <button class="button" type="submit" v-on:click="updateStatus">Update</button>
         </form>
     </div>
 </template>
+
+<style src="bulma/css/bulma.css"></style>
 
 <script>
 const request = require('request')
@@ -33,7 +37,7 @@ export default {
     methods: {
         fetchEvent: function () {
             var that=this
-            var url = 'http://api.tourneyfiner.com/v1/event/' + this.$route.params.id
+            var url = 'https://api.tourneyfinder.com/v1/event/' + this.$route.params.id
             request({
                 headers: {'Content-Type': 'application/json'},
                 uri: url
@@ -51,7 +55,7 @@ export default {
             e.preventDefault()
             console.log(this.status)
             var that = this
-            var url = 'http://api.tourneyfiner.com/v1/moderate-event/' + this.$route.params.id
+            var url = 'https://api.tourneyfinder.com/v1/moderate-event/' + this.$route.params.id
             var status = null
             if (this.status == 'false') {
                 status = false

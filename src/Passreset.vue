@@ -3,14 +3,16 @@
         <form action="#">
             <div>
                 <label for="password">New Password</label>
-                <input type="password" name="password" id="password" v-model="password" />
+                <input class="input" type="password" name="password" id="password" v-model="password" />
             </div>
             <div>
-                <button type="submit" v-on:click="resetPass">Reset Password</button>
+                <button class="button" type="submit" v-on:click="resetPass">Reset Password</button>
             </div>
         </form>
     </div>
 </template>
+
+<style src="bulma/css/bulma.css"></style>
 
 <script>
 const request = require('request')
@@ -25,7 +27,7 @@ export default {
     methods: {
         resetPass: function (e) {
             e.preventDefault()
-            var url = 'http://api.tourneyfiner.com/v1/reset/' + this.$route.params.token
+            var url = 'https://api.tourneyfinder.com/v1/reset/' + this.$route.params.token
             var body = JSON.stringify({new_password: this.password})
             request.post({
                 headers: {'Content-Type': 'application/json'},

@@ -33,11 +33,21 @@ const app = new Vue({
   router,
   computed: {
       canDisplay: function () {
-          var authenticated = localStorage.getItem('email') && localStorage.getItem('token')
+          var authenticated = localStorage.getItem('email') && localStorage.getItem('token');
           if (authenticated) {
-              return false
+              return false;
           } else {
-              return true
+              return true;
+          }
+      },
+      canModerate: function () {
+          var moderator =  localStorage.getItem('moderator');
+          if (!moderator) {
+              console.log("WHUDDUP");
+              console.log(moderator);
+              return false;
+          } else {
+              return true;
           }
       }
   }

@@ -6,27 +6,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
   <body>
-      <h1>TourneyFinder</h1>
     <div id="app">
-        <p>
-            <router-link to="/">Home</router-link>
-            <!-- Search -->
-            <router-link to="/event/add">Add Event</router-link>
-        <span v-if="canDisplay">
-            <router-link to="/login">Login</router-link>
-            <router-link to="/register">Register</router-link>
-        </span>
-        </p>
-        <router-view></router-view>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="content has-text-centered">
-                <p>
-                    <strong>TourneyFinder</strong> by <a href="http://tjsoptame.com">TJ Soptame</a>
-                </p>
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <router-link class="navbar-item" to="/">TourneyFinder</router-link>
+                <router-link class="navbar-item" to="/event/add">Add Event</router-link>
+                <router-link class="navbar-item" to="/login" v-if="canDisplay">Login</router-link>
+                <router-link class="navbar-item" to="/register" v-if="canDisplay">Register</router-link>
+                <div class="navbar-item" v-if="canModerate">Moderate</div>
+            </div>
+    </nav>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <router-view></router-view>
             </div>
         </div>
+    </div>
+    </div>
+    <footer class="footer has-text-centered">
+        <strong>TourneyFinder</strong> by <a href="https://tjsoptame.com">TJ Soptame</a>
     </footer>
     <script src="/dist/build.js"></script>
   </body>
